@@ -1,0 +1,167 @@
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
+/**
+ * Handle events from the view, such as button clicks
+ *
+ * @author NK
+ */
+public class Controller {
+
+    // TODO: 6/10/2018 Ideally, add timer and only check answer when timer is done instead of on click
+
+    private Model model;
+
+    private final String originalStyle = "-fx-background-color: lightgrey;" +
+            " -fx-background-radius: 20;" +
+            " -fx-border-radius: 20; -fx-border-width: 5;";
+
+    @FXML
+    private Button answerOne;
+
+    @FXML
+    private Button answerThree;
+
+    @FXML
+    private Button answerTwo;
+
+    @FXML
+    private Label question;
+
+    // Timer Label for countdown
+    @FXML
+    private Label timer;
+
+    // the button with the correct answer
+    private Button correctButton;
+
+    // see if the user has already answered
+    private boolean answered;
+
+    /**
+     * Checks if a button is the correct answer
+     * @param b the button we are checking
+     * @return true if yes, false if no
+     */
+    public boolean checkAnswer(Button b) {
+        return b.equals(correctButton);
+    }
+
+    /**
+     * Event that runs when an answer button that has been clicked
+     * Sets the style for buttons, red=wrong, green=right, orange=right answer if picked wrong
+     * @param event the button event
+     */
+    public void answerSelected(ActionEvent event) {
+        // Make sure the user hasn't already picked an answer
+        if(!answered) {
+            // Get the button where the event came from
+            Button b = (Button) event.getSource();
+
+//            Uncomment when timer works
+//            if (b.equals(answerOne)) {
+//                answerOne.setStyle(answerOne.getStyle() + " -fx-border-color: blue;");
+//            } else if (b.equals(answerTwo)) {
+//                answerTwo.setStyle(answerTwo.getStyle() + " -fx-border-color: blue;");
+//            } else if (b.equals(answerThree)) {
+//                answerThree.setStyle(answerThree.getStyle() + " -fx-border-color: blue;");
+//            }
+
+            // temp check for answer on click, timer not working
+            boolean correct = false;
+            if (checkAnswer(b)) {
+                correct = true;
+            } else {
+                correct = false;
+            }
+
+            // check each button to see if the one clicked is 1,2,3
+            // check if it is the correct button, and update color accordingly
+            if (b.equals(answerOne)) {
+                if (correct) {
+                    answerOne.setStyle(originalStyle + " -fx-background-color: lightgreen;");
+                } else {
+                    answerOne.setStyle(originalStyle + " -fx-background-color: indianred;");
+                    correctButton.setStyle(originalStyle + " -fx-background-color: darkorange;");
+                }
+            } else if (b.equals(answerTwo)) {
+                if (correct) {
+                    answerTwo.setStyle(originalStyle + " -fx-background-color: lightgreen;");
+                } else {
+                    answerTwo.setStyle(originalStyle + " -fx-background-color: indianred;");
+                    correctButton.setStyle(originalStyle + " -fx-background-color: darkorange;");
+                }
+            } else if (b.equals(answerThree)) {
+                if (correct) {
+                    answerThree.setStyle(originalStyle + " -fx-background-color: lightgreen;");
+                } else {
+                    answerThree.setStyle(originalStyle + " -fx-background-color: indianred;");
+                    correctButton.setStyle(originalStyle + " -fx-background-color: darkorange;");
+                }
+            }
+
+            // end temp
+
+            answered = true;
+        }
+    }
+
+    /**
+     * reset the buttons for a new question
+     */
+    public void resetButtons() {
+        answerOne.setStyle(originalStyle);
+        answerTwo.setStyle(originalStyle);
+        answerThree.setStyle(originalStyle);
+    }
+
+    /**
+     * Get a new question from the text file, and update the nodes
+     */
+    public void newQuestion() {
+        answered = false;
+        resetButtons();
+        startTimer();
+        Question q = model.getRandomQuestion();
+        question.setText(q.getQuestion());
+        answerOne.setText(q.getAnswerOne());
+        answerTwo.setText(q.getAnswerTwo());
+        answerThree.setText(q.getAnswerThree());
+        correctButton = findCorrect(q.getCorrectAnswer());
+    }
+
+    // TODO: 6/10/2018 find more efficient way to do this
+    /**
+     * Find the button that has the correct answer
+     * @param answer: the answer we are looking for
+     * @return the button that has the correct answer
+     */
+    private Button findCorrect(String answer) {
+        if (answerOne.getText().equals(answer)) {
+            return answerOne;
+        } else if (answerTwo.getText().equals(answer)) {
+            return answerTwo;
+        } else {
+            return answerThree;
+        }
+
+    }
+
+    /**
+     * Run on application start, pass controller to model and get a question
+     */
+    public void initialize() {
+        model = new Model(this);
+        // TODO: 6/10/2018 add timer for initialization question
+        newQuestion();
+
+    }
+
+    public void startTimer() {
+
+    }
+
+
+}
