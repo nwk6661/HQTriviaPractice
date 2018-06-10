@@ -5,3 +5,5 @@ by seeing savage questions and pointing out the obvious answers.
 
 The questions are pulled from http://hqbuff.com/, so not all questions are available.
 You can pull the questions yourself with the python tool I have written here: /temp/ 
+
+I am bad ay GUIs so feel free help.
