@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -9,18 +10,41 @@
 
 <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="83.0" lineSpacing="3.0" prefHeight="123.0" prefWidth="290.0" style="-fx-background-color: lightgray; -fx-background-radius: 20;" text="this is an example of a longer question. maybe not this long in practice but still" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="83.0" lineSpacing="3.0" prefHeight="123.0" prefWidth="290.0" style="-fx-background-color: lightgray; -fx-background-radius: 20;" text="Question" textAlignment="CENTER" wrapText="true">
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding></Label>
-      <VBox fx:id="answerBox" alignment="CENTER" layoutX="55.0" layoutY="264.0" prefHeight="260.0" prefWidth="290.0" spacing="20.0">
+         </padding>
+         <font>
+            <Font name="Segoe UI Bold" size="15.0" />
+         </font></Label>
+      <VBox fx:id="answerBox" alignment="CENTER" layoutX="55.0" layoutY="261.0" prefHeight="260.0" prefWidth="290.0" spacing="20.0">
          <children>
-            <Button fx:id="answerOne" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#answerSelected" prefHeight="127.0" prefWidth="290.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 5;" text="Answer 1" />
-            <Button fx:id="answerTwo" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="76.0" mnemonicParsing="false" onAction="#answerSelected" prefHeight="127.0" prefWidth="290.0" style="-fx-background-color: lightgray; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 5;" text="Answer 2" />
-            <Button fx:id="answerThree" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#answerSelected" prefHeight="127.0" prefWidth="290.0" style="-fx-background-color: lightgray; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 5;" text="Answer 3" />
+            <Button fx:id="answerOne" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#answerSelected" prefHeight="127.0" prefWidth="290.0" style="-fx-background-color: lightgrey; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 5;" text="Answer 1">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font></Button>
+            <Button fx:id="answerTwo" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="76.0" mnemonicParsing="false" onAction="#answerSelected" prefHeight="127.0" prefWidth="290.0" style="-fx-background-color: lightgray; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 5;" text="Answer 2">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font></Button>
+            <Button fx:id="answerThree" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#answerSelected" prefHeight="127.0" prefWidth="290.0" style="-fx-background-color: lightgray; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 5;" text="Answer 3">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font></Button>
          </children>
       </VBox>
-      <Button layoutX="154.0" layoutY="221.0" mnemonicParsing="false" onAction="#newQuestion" text="New Question" />
-      <Label fx:id="timer" alignment="CENTER" layoutX="142.0" layoutY="27.0" prefHeight="35.0" prefWidth="98.0" text="Timer" />
+      <Button layoutX="154.0" layoutY="221.0" mnemonicParsing="false" onAction="#newQuestion" text="New Question">
+         <font>
+            <Font name="Segoe UI" size="12.0" />
+         </font></Button>
+      <Label fx:id="timerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="18.0" prefHeight="55.0" prefWidth="98.0" text="Timer" textAlignment="CENTER">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font></Label>
+      <Label fx:id="timeUp" alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="34.0" opacity="0.0" text="Time's up!" textAlignment="CENTER">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
