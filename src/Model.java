@@ -33,7 +33,7 @@ public class Model {
             // initialize the bufferedreader to read from file
             in = new BufferedReader(
                     new InputStreamReader(
-                            new FileInputStream("questions/questions.txt"), "UTF-8"));
+                            new FileInputStream("resources/questions.txt"), "UTF-8"));
             tempLine = in.readLine();
             // loop through the file until no more lines
             while (tempLine != null) {
