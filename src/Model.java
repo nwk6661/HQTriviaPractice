@@ -32,8 +32,7 @@ public class Model {
             // TODO: 6/10/2018 fix this so no unicode diamond
             // initialize the bufferedreader to read from file
             in = new BufferedReader(
-                    new InputStreamReader(
-                            new FileInputStream("resources/questions.txt"), "UTF-8"));
+                    new InputStreamReader(getClass().getResourceAsStream("questions.txt")));
             tempLine = in.readLine();
             // loop through the file until no more lines
             while (tempLine != null) {

@@ -187,7 +187,7 @@ public class Controller {
         model = new Model(this);
         // timerLabel.textProperty().bind(timeRemaining.asString());
         timerLabel.textProperty().bind(timeRemaining.asString("%.2f"));
-        timeFinishedSound = new AudioClip(new File("resources/sound.wav").toURI().toString());
+        timeFinishedSound = new AudioClip(getClass().getResource("sound.wav").toExternalForm());
     }
 
     private void startTimer() {
