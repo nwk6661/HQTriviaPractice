@@ -7,3 +7,8 @@ The questions are pulled from http://hqbuff.com/, so not all questions are avail
 You can pull the questions yourself with the python tool I have written here: https://github.com/nwk6661/HQBuffScraper 
 
 I am bad at GUIs so feel free help.
+
+
+
+To run it, Download precompiled jar from releases and java, and run the following command in the directory you unzipped to:
+`java -jar HQPractice.jar`
