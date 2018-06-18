@@ -22,8 +22,6 @@ import java.io.File;
  */
 public class Controller {
 
-    // TODO: 6/10/2018 Ideally, add timer and only check answer when timer is done instead of on click
-
     private Model model;
 
     private final String originalStyle = "-fx-background-color: lightgrey;" +
@@ -84,16 +82,6 @@ public class Controller {
             // Get the button where the event came from
             Button b = (Button) event.getSource();
 
-//            Uncomment when timer works
-//            if (b.equals(answerOne)) {
-//                answerOne.setStyle(answerOne.getStyle() + " -fx-border-color: blue;");
-//            } else if (b.equals(answerTwo)) {
-//                answerTwo.setStyle(answerTwo.getStyle() + " -fx-border-color: blue;");
-//            } else if (b.equals(answerThree)) {
-//                answerThree.setStyle(answerThree.getStyle() + " -fx-border-color: blue;");
-//            }
-
-            // temp check for answer on click, timer not working
             boolean correct = false;
             if (checkAnswer(b)) {
                 correct = true;
@@ -163,7 +151,6 @@ public class Controller {
         correctButton = findCorrect(q.getCorrectAnswer());
     }
 
-    // TODO: 6/10/2018 find more efficient way to do this
     /**
      * Find the button that has the correct answer
      * @param answer: the answer we are looking for

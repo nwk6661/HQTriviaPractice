@@ -29,7 +29,6 @@ public class Model {
             String[] tempList;
             String text;
 
-            // TODO: 6/10/2018 fix this so no unicode diamond
             // initialize the bufferedreader to read from file
             in = new BufferedReader(
                     new InputStreamReader(getClass().getResourceAsStream("questions.txt")));
