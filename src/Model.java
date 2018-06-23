@@ -1,8 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * Primary purpose of this class is to read questions from text file and generate random
@@ -31,7 +29,7 @@ public class Model {
 
             // initialize the bufferedreader to read from file
             in = new BufferedReader(
-                    new InputStreamReader(getClass().getResourceAsStream("questions.txt")));
+                    new InputStreamReader(new FileInputStream("questions/questions.txt"), "UTF-8"));
             tempLine = in.readLine();
             // loop through the file until no more lines
             while (tempLine != null) {

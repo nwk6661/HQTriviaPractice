@@ -24,9 +24,11 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/layout.fxml"));
+        Parent ui = FXMLLoader.load(getClass().getResource("/updateUI.fxml"));
+
         primaryStage.setTitle("HQ Practice");
-        primaryStage.setScene(new Scene(root));
+
+        primaryStage.setScene(new Scene(ui));
         primaryStage.show();
     }
 }
